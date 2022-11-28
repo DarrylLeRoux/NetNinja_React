@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Title from "./components/Title";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      <Title />
       {showEvents && (
         <div>
           <button
