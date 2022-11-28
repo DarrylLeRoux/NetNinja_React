@@ -68,3 +68,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.title {
+  display: inline-block;
+  padding: 30px 60px;
+  background: #363333;
+  border-radius: 8px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  display: inline-block;
+  color: rgb(171, 170, 170);
+  font-weight: normal;
+  padding-bottom: 20px;
+  border-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
