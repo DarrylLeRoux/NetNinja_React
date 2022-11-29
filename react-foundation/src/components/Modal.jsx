@@ -1,12 +1,10 @@
 import "./modal.css";
 
-const Modal = () => {
+const Modal = ({ children, handleClose }) => {
   return (
     <div className="modal-backdrop">
-      <div className="modal">
-        <h2>10% Off Coupon Code!!</h2>
-        <p>Use the code NINJA10 at checkout</p>
-      </div>
+      <div className="modal">{children}</div>
+      <button onClick={handleClose}>close</button>
     </div>
   );
 };

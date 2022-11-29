@@ -4,6 +4,8 @@ import Modal from "./components/Modal";
 import "./App.css";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   const [showEvents, setShowEvents] = useState(true);
   const [events, setEvents] = useState([
     { title: "Marios birthday bash", id: 1 },
@@ -21,6 +23,10 @@ function App() {
       });
     });
     console.log(id);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
   };
 
   const subtitle = "All the latest events in Marioland";
@@ -66,7 +72,23 @@ function App() {
             </React.Fragment>
           );
         })}
-      <Modal />
+      {/* <Modal>
+        <h2>10% Off Coupon Code!!</h2>
+        <p>Use the code NINJA10 at checkout</p>
+      </Modal> */}
+      {showModal && (
+        <Modal handleClose={handleClose}>
+          <h2>Terms and Conditions</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima
+            aut qui eius dignissimos! Corrupti quisquam numquam maxime dolore
+            molestiae.
+          </p>
+        </Modal>
+      )}
+      <div>
+        <button onClick={() => setShowModal(true)}>Show Modal</button>
+      </div>
     </div>
   );
 }
