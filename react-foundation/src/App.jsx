@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Title from "./components/Title";
+import Modal from "./components/Modal";
 import "./App.css";
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
       {showEvents &&
         events.map((event) => {
           return (
-            <div key={event.id}>
+            <React.Fragment key={event.id}>
               <h2>{event.title}</h2>
               <button
                 onClick={() => {
@@ -62,9 +63,10 @@ function App() {
               >
                 Delete Event
               </button>
-            </div>
+            </React.Fragment>
           );
         })}
+      <Modal />
     </div>
   );
 }
