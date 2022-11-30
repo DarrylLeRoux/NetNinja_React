@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Title from "./components/Title";
 import Modal from "./components/Modal";
+import EventList from "./components/EventList";
 import "./App.css";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
 
-  const [showEvents, setShowEvents] = useState(true);
+  const [showEvents, setShowEvents] = useState(false);
   const [events, setEvents] = useState([
     { title: "Marios birthday bash", id: 1 },
     { title: "Bowsers lives stream", id: 2 },
@@ -24,7 +25,6 @@ function App() {
     });
     console.log(id);
   };
-
   const handleClose = () => {
     setShowModal(false);
   };
@@ -57,21 +57,7 @@ function App() {
         </div>
       )}
       {/* use showEvents as set as true, and if not, then run the code at the right of the && */}
-      {showEvents &&
-        events.map((event) => {
-          return (
-            <React.Fragment key={event.id}>
-              <h2>{event.title}</h2>
-              <button
-                onClick={() => {
-                  handleClick(event.id);
-                }}
-              >
-                Delete Event
-              </button>
-            </React.Fragment>
-          );
-        })}
+      {showEvents && <EventList events={events} handleClick={handleClick} />}
       {/* <Modal>
         <h2>10% Off Coupon Code!!</h2>
         <p>Use the code NINJA10 at checkout</p>
