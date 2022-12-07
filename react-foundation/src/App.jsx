@@ -73,7 +73,7 @@ function App() {
         </Modal>
       )}
       <div>
-        <button onClick={() => setShowModal(true)}>Show Modal</button>
+        <button onClick={() => setShowModal(true)}>Add New Event</button>
       </div>
     </div>
   );
