@@ -7,6 +7,7 @@ import React from "react";
 function NewEventForm({ addEvent }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
+  const [location, setLocation] = useState("");
 
   // USEREF
   // const title = useRef();
@@ -15,6 +16,7 @@ function NewEventForm({ addEvent }) {
   const resetForm = () => {
     setTitle("");
     setDate("");
+    setLocation("Manchester");
     //USEREF
     // title.current.value = "";
     // date.current.value = "";
@@ -26,9 +28,11 @@ function NewEventForm({ addEvent }) {
     const event = {
       title: title,
       date: date,
+      location: location,
       id: Math.floor(Math.random() * 10000),
     };
 
+    console.log(event);
     addEvent(event);
     resetForm();
   };
@@ -52,9 +56,16 @@ function NewEventForm({ addEvent }) {
           onChange={(e) => setDate(e.target.value)}
           value={date}
         />
+        <label>
+          <span>Event Location:</span>
+          <select onChange={(e) => setLocation(e.target.value)}>
+            <option value="manchester">Manchester</option>
+            <option value="london">London</option>
+            <option value="cardiff">Cardiff</option>
+          </select>
+        </label>
       </label>
       <button type="submit">Submit</button>
-
       <p onClick={resetForm}>Rest the Form</p>
     </form>
   );

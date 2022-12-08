@@ -7,6 +7,9 @@ const EventList = ({ events, handleClick }) => {
         return (
           <React.Fragment key={event.id}>
             <h2>{event.title}</h2>
+            <p>
+              {event.location} - {event.location}
+            </p>
             <button
               style={{ backgroundColor: "grey" }}
               onClick={() => {
