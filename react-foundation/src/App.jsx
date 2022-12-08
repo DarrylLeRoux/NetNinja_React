@@ -9,11 +9,15 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const [showEvents, setShowEvents] = useState(false);
-  const [events, setEvents] = useState([
-    { title: "Marios birthday bash", id: 1 },
-    { title: "Bowsers lives stream", id: 2 },
-    { title: "Race on Moo Moo farm", id: 3 },
-  ]);
+  const [events, setEvents] = useState([]);
+
+  // Take the event function from NewEventForm and add it to the prevEvents state (which is an empty array as per line 12)
+  const addEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event];
+    });
+    setShowModal(false);
+  };
 
   const handleClick = (id) => {
     // If you need to use the previous state, always use the prev state inside a callback function.
@@ -25,9 +29,6 @@ function App() {
       });
     });
     console.log(id);
-  };
-  const handleClose = () => {
-    setShowModal(false);
   };
 
   const subtitle = "All the latest events in Marioland";
@@ -61,8 +62,8 @@ function App() {
       {showEvents && <EventList events={events} handleClick={handleClick} />}
 
       {showModal && (
-        <Modal handleClose={handleClose}>
-          <NewEventForm />
+        <Modal>
+          <NewEventForm addEvent={addEvent} />
         </Modal>
       )}
       <div>
